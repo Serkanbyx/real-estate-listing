@@ -1,0 +1,516 @@
+{
+  "listings": [
+    {
+      "id": "1",
+      "title": "Stunning 3 Bed Apartment in Kensington",
+      "description": "Beautiful period conversion in the heart of Kensington. Walking distance to High Street Kensington tube station. Features high ceilings, wooden floors, and a private balcony overlooking the gardens.",
+      "price": 1250000,
+      "currency": "GBP",
+      "type": "apartment",
+      "status": "for-sale",
+      "address": {
+        "street": "42 Kensington High Street",
+        "city": "London",
+        "district": "Kensington",
+        "postalCode": "W8 4PT"
+      },
+      "coordinates": { "lat": 51.5014, "lng": -0.1919 },
+      "features": {
+        "rooms": 3,
+        "bathrooms": 2,
+        "area": 120,
+        "floor": 2,
+        "totalFloors": 4,
+        "buildingAge": 120,
+        "heating": "Gas Central Heating",
+        "furnished": false,
+        "parking": false,
+        "balcony": true,
+        "elevator": true
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800",
+        "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=800"
+      ],
+      "agent": {
+        "id": "agent1",
+        "name": "James Wilson",
+        "phone": "+44 20 7946 0958",
+        "email": "james@ukestates.co.uk",
+        "avatar": "https://randomuser.me/api/portraits/men/1.jpg"
+      },
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-01-20T14:30:00Z"
+    },
+    {
+      "id": "2",
+      "title": "Luxury Detached Villa in Surrey",
+      "description": "Magnificent 6-bedroom detached house set in 2 acres of landscaped gardens. Features include indoor swimming pool, tennis court, cinema room, and wine cellar. Gated entrance with 24-hour security.",
+      "price": 4500000,
+      "currency": "GBP",
+      "type": "villa",
+      "status": "for-sale",
+      "address": {
+        "street": "The Ridgeway",
+        "city": "Guildford",
+        "district": "Surrey",
+        "postalCode": "GU1 2AA"
+      },
+      "coordinates": { "lat": 51.2362, "lng": -0.5704 },
+      "features": {
+        "rooms": 6,
+        "bathrooms": 5,
+        "area": 650,
+        "floor": 1,
+        "totalFloors": 3,
+        "buildingAge": 15,
+        "heating": "Underfloor Heating",
+        "furnished": true,
+        "parking": true,
+        "balcony": true,
+        "elevator": true
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800"
+      ],
+      "agent": {
+        "id": "agent2",
+        "name": "Sarah Thompson",
+        "phone": "+44 1483 456 789",
+        "email": "sarah@ukestates.co.uk",
+        "avatar": "https://randomuser.me/api/portraits/women/2.jpg"
+      },
+      "createdAt": "2024-01-10T09:00:00Z",
+      "updatedAt": "2024-01-18T11:00:00Z"
+    },
+    {
+      "id": "3",
+      "title": "Modern Office Space in Canary Wharf",
+      "description": "Prime Grade A office space in Canary Wharf financial district. Floor to ceiling windows with stunning Thames views. 24/7 concierge, meeting rooms, and underground parking included.",
+      "price": 15000,
+      "currency": "GBP",
+      "type": "office",
+      "status": "for-rent",
+      "address": {
+        "street": "One Canada Square",
+        "city": "London",
+        "district": "Canary Wharf",
+        "postalCode": "E14 5AB"
+      },
+      "coordinates": { "lat": 51.5049, "lng": -0.0187 },
+      "features": {
+        "rooms": 10,
+        "bathrooms": 4,
+        "area": 450,
+        "floor": 25,
+        "totalFloors": 50,
+        "buildingAge": 30,
+        "heating": "Central Air Conditioning",
+        "furnished": true,
+        "parking": true,
+        "balcony": false,
+        "elevator": true
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
+        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800",
+        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800"
+      ],
+      "agent": {
+        "id": "agent3",
+        "name": "Michael Brown",
+        "phone": "+44 20 7123 4567",
+        "email": "michael@ukestates.co.uk",
+        "avatar": "https://randomuser.me/api/portraits/men/3.jpg"
+      },
+      "createdAt": "2024-01-12T08:00:00Z",
+      "updatedAt": "2024-01-19T16:00:00Z"
+    },
+    {
+      "id": "4",
+      "title": "2 Bed Flat for Rent in Manchester City Centre",
+      "description": "Contemporary apartment in the Northern Quarter with exposed brick walls and industrial features. Close to Piccadilly Station. Includes gym and rooftop terrace access.",
+      "price": 1800,
+      "currency": "GBP",
+      "type": "apartment",
+      "status": "for-rent",
+      "address": {
+        "street": "15 Stevenson Square",
+        "city": "Manchester",
+        "district": "Northern Quarter",
+        "postalCode": "M1 1FB"
+      },
+      "coordinates": { "lat": 53.4831, "lng": -2.2366 },
+      "features": {
+        "rooms": 2,
+        "bathrooms": 1,
+        "area": 75,
+        "floor": 4,
+        "totalFloors": 6,
+        "buildingAge": 8,
+        "heating": "Gas Central Heating",
+        "furnished": true,
+        "parking": false,
+        "balcony": false,
+        "elevator": true
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800",
+        "https://images.unsplash.com/photo-1560185127-6a8c5c1ad7d1?w=800"
+      ],
+      "agent": {
+        "id": "agent4",
+        "name": "Emily Clarke",
+        "phone": "+44 161 234 5678",
+        "email": "emily@ukestates.co.uk",
+        "avatar": "https://randomuser.me/api/portraits/women/4.jpg"
+      },
+      "createdAt": "2024-01-08T14:00:00Z",
+      "updatedAt": "2024-01-17T10:00:00Z"
+    },
+    {
+      "id": "5",
+      "title": "Victorian Terraced House in Bristol",
+      "description": "Charming 4-bedroom Victorian terrace with original features including fireplaces, cornicing, and stained glass windows. South-facing garden and off-street parking.",
+      "price": 575000,
+      "currency": "GBP",
+      "type": "house",
+      "status": "for-sale",
+      "address": {
+        "street": "28 Clifton Road",
+        "city": "Bristol",
+        "district": "Clifton",
+        "postalCode": "BS8 1AF"
+      },
+      "coordinates": { "lat": 51.4545, "lng": -2.5879 },
+      "features": {
+        "rooms": 4,
+        "bathrooms": 2,
+        "area": 180,
+        "floor": 1,
+        "totalFloors": 3,
+        "buildingAge": 140,
+        "heating": "Gas Central Heating",
+        "furnished": false,
+        "parking": true,
+        "balcony": false,
+        "elevator": false
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800",
+        "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800"
+      ],
+      "agent": {
+        "id": "agent5",
+        "name": "David Mitchell",
+        "phone": "+44 117 987 6543",
+        "email": "david@ukestates.co.uk",
+        "avatar": "https://randomuser.me/api/portraits/men/5.jpg"
+      },
+      "createdAt": "2024-01-05T12:00:00Z",
+      "updatedAt": "2024-01-16T09:00:00Z"
+    },
+    {
+      "id": "6",
+      "title": "Seafront Apartment in Brighton",
+      "description": "Stunning 2-bedroom apartment with uninterrupted sea views. Walking distance to Brighton Pier and the Lanes. Includes secure parking and communal gardens.",
+      "price": 485000,
+      "currency": "GBP",
+      "type": "apartment",
+      "status": "for-sale",
+      "address": {
+        "street": "Marine Parade",
+        "city": "Brighton",
+        "district": "Kemptown",
+        "postalCode": "BN2 1TL"
+      },
+      "coordinates": { "lat": 50.8198, "lng": -0.1312 },
+      "features": {
+        "rooms": 2,
+        "bathrooms": 1,
+        "area": 85,
+        "floor": 3,
+        "totalFloors": 5,
+        "buildingAge": 25,
+        "heating": "Electric Heating",
+        "furnished": false,
+        "parking": true,
+        "balcony": true,
+        "elevator": true
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800",
+        "https://images.unsplash.com/photo-1560184897-ae75f418493e?w=800",
+        "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=800"
+      ],
+      "agent": {
+        "id": "agent6",
+        "name": "Lisa Anderson",
+        "phone": "+44 1273 456 789",
+        "email": "lisa@ukestates.co.uk",
+        "avatar": "https://randomuser.me/api/portraits/women/6.jpg"
+      },
+      "createdAt": "2024-01-03T11:00:00Z",
+      "updatedAt": "2024-01-15T13:00:00Z"
+    },
+    {
+      "id": "7",
+      "title": "Retail Unit in Birmingham City Centre",
+      "description": "Prime retail space on New Street with excellent footfall. Recently refurbished with A3 licence. Suitable for restaurant, cafe or retail use.",
+      "price": 8500,
+      "currency": "GBP",
+      "type": "shop",
+      "status": "for-rent",
+      "address": {
+        "street": "45 New Street",
+        "city": "Birmingham",
+        "district": "City Centre",
+        "postalCode": "B2 4EG"
+      },
+      "coordinates": { "lat": 52.4797, "lng": -1.8998 },
+      "features": {
+        "rooms": 3,
+        "bathrooms": 2,
+        "area": 150,
+        "floor": 0,
+        "totalFloors": 1,
+        "buildingAge": 50,
+        "heating": "Air Conditioning",
+        "furnished": false,
+        "parking": false,
+        "balcony": false,
+        "elevator": false
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=800",
+        "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800",
+        "https://images.unsplash.com/photo-1582037928769-181f2644ecb7?w=800"
+      ],
+      "agent": {
+        "id": "agent7",
+        "name": "James Taylor",
+        "phone": "+44 121 234 5678",
+        "email": "james.t@ukestates.co.uk",
+        "avatar": "https://randomuser.me/api/portraits/men/7.jpg"
+      },
+      "createdAt": "2024-01-01T10:00:00Z",
+      "updatedAt": "2024-01-14T15:00:00Z"
+    },
+    {
+      "id": "8",
+      "title": "Development Land in Edinburgh",
+      "description": "Excellent development opportunity with planning permission for 12 residential units. Located in sought-after Morningside area with excellent transport links.",
+      "price": 2200000,
+      "currency": "GBP",
+      "type": "land",
+      "status": "for-sale",
+      "address": {
+        "street": "Morningside Road",
+        "city": "Edinburgh",
+        "district": "Morningside",
+        "postalCode": "EH10 4BZ"
+      },
+      "coordinates": { "lat": 55.9252, "lng": -3.2125 },
+      "features": {
+        "rooms": 0,
+        "bathrooms": 0,
+        "area": 2500,
+        "buildingAge": 0,
+        "parking": false,
+        "balcony": false,
+        "elevator": false
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800",
+        "https://images.unsplash.com/photo-1628624747186-a941c476b7ef?w=800",
+        "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800"
+      ],
+      "agent": {
+        "id": "agent8",
+        "name": "Jennifer Scott",
+        "phone": "+44 131 456 7890",
+        "email": "jennifer@ukestates.co.uk",
+        "avatar": "https://randomuser.me/api/portraits/women/8.jpg"
+      },
+      "createdAt": "2023-12-28T09:00:00Z",
+      "updatedAt": "2024-01-13T12:00:00Z"
+    },
+    {
+      "id": "9",
+      "title": "Studio Flat in Leeds City Centre",
+      "description": "Modern studio apartment perfect for young professionals. Open plan living with fitted kitchen, en-suite shower room. Walking distance to Leeds train station.",
+      "price": 750,
+      "currency": "GBP",
+      "type": "apartment",
+      "status": "for-rent",
+      "address": {
+        "street": "The Calls",
+        "city": "Leeds",
+        "district": "City Centre",
+        "postalCode": "LS2 7EY"
+      },
+      "coordinates": { "lat": 53.7960, "lng": -1.5436 },
+      "features": {
+        "rooms": 1,
+        "bathrooms": 1,
+        "area": 35,
+        "floor": 5,
+        "totalFloors": 8,
+        "buildingAge": 10,
+        "heating": "Electric Heating",
+        "furnished": true,
+        "parking": false,
+        "balcony": false,
+        "elevator": true
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?w=800",
+        "https://images.unsplash.com/photo-1560448075-cbc16bb4af8e?w=800",
+        "https://images.unsplash.com/photo-1560185007-5f0bb1866cab?w=800"
+      ],
+      "agent": {
+        "id": "agent9",
+        "name": "Robert Harris",
+        "phone": "+44 113 234 5678",
+        "email": "robert@ukestates.co.uk",
+        "avatar": "https://randomuser.me/api/portraits/men/9.jpg"
+      },
+      "createdAt": "2023-12-25T14:00:00Z",
+      "updatedAt": "2024-01-12T11:00:00Z"
+    },
+    {
+      "id": "10",
+      "title": "Waterfront Penthouse in Liverpool",
+      "description": "Spectacular 3-bedroom penthouse at the Royal Albert Dock with panoramic waterfront views. Private roof terrace, underground parking for 2 cars, and 24-hour concierge.",
+      "price": 895000,
+      "currency": "GBP",
+      "type": "apartment",
+      "status": "for-sale",
+      "address": {
+        "street": "Royal Albert Dock",
+        "city": "Liverpool",
+        "district": "Waterfront",
+        "postalCode": "L3 4AD"
+      },
+      "coordinates": { "lat": 53.4014, "lng": -2.9936 },
+      "features": {
+        "rooms": 3,
+        "bathrooms": 2,
+        "area": 180,
+        "floor": 8,
+        "totalFloors": 8,
+        "buildingAge": 5,
+        "heating": "Underfloor Heating",
+        "furnished": false,
+        "parking": true,
+        "balcony": true,
+        "elevator": true
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800",
+        "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800",
+        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800"
+      ],
+      "agent": {
+        "id": "agent10",
+        "name": "Amanda White",
+        "phone": "+44 151 234 5678",
+        "email": "amanda@ukestates.co.uk",
+        "avatar": "https://randomuser.me/api/portraits/women/10.jpg"
+      },
+      "createdAt": "2023-12-20T10:00:00Z",
+      "updatedAt": "2024-01-11T16:00:00Z"
+    },
+    {
+      "id": "11",
+      "title": "Industrial Unit in Sheffield",
+      "description": "Modern industrial/warehouse unit with excellent motorway access. Features loading bay, 3-phase power, and secure yard. Suitable for light industrial or distribution use.",
+      "price": 450000,
+      "currency": "GBP",
+      "type": "office",
+      "status": "for-sale",
+      "address": {
+        "street": "Parkway Drive",
+        "city": "Sheffield",
+        "district": "Tinsley",
+        "postalCode": "S9 1UQ"
+      },
+      "coordinates": { "lat": 53.4023, "lng": -1.4082 },
+      "features": {
+        "rooms": 5,
+        "bathrooms": 2,
+        "area": 800,
+        "floor": 0,
+        "totalFloors": 1,
+        "buildingAge": 20,
+        "heating": "Industrial Heating",
+        "furnished": false,
+        "parking": true,
+        "balcony": false,
+        "elevator": false
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800",
+        "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800",
+        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800"
+      ],
+      "agent": {
+        "id": "agent11",
+        "name": "Christopher Lee",
+        "phone": "+44 114 234 5678",
+        "email": "chris@ukestates.co.uk",
+        "avatar": "https://randomuser.me/api/portraits/men/11.jpg"
+      },
+      "createdAt": "2023-12-15T08:00:00Z",
+      "updatedAt": "2024-01-10T14:00:00Z"
+    },
+    {
+      "id": "12",
+      "title": "New Build 4 Bed House in Cambridge",
+      "description": "Brand new energy-efficient family home in popular development. Open plan kitchen/diner, en-suite master bedroom, landscaped garden, and double garage. Close to excellent schools.",
+      "price": 725000,
+      "currency": "GBP",
+      "type": "house",
+      "status": "for-sale",
+      "address": {
+        "street": "Darwin Green",
+        "city": "Cambridge",
+        "district": "North West Cambridge",
+        "postalCode": "CB3 0AS"
+      },
+      "coordinates": { "lat": 52.2181, "lng": 0.0952 },
+      "features": {
+        "rooms": 4,
+        "bathrooms": 3,
+        "area": 165,
+        "floor": 1,
+        "totalFloors": 2,
+        "buildingAge": 0,
+        "heating": "Air Source Heat Pump",
+        "furnished": false,
+        "parking": true,
+        "balcony": false,
+        "elevator": false
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?w=800",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
+        "https://images.unsplash.com/photo-1560184897-ae75f418493e?w=800"
+      ],
+      "agent": {
+        "id": "agent12",
+        "name": "Daniel Harris",
+        "phone": "+44 1223 456 789",
+        "email": "daniel@ukestates.co.uk",
+        "avatar": "https://randomuser.me/api/portraits/men/12.jpg"
+      },
+      "createdAt": "2023-12-10T11:00:00Z",
+      "updatedAt": "2024-01-09T09:00:00Z"
+    }
+  ]
+}
