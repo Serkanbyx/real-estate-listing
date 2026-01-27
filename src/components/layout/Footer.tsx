@@ -68,6 +68,26 @@ export function Footer() {
 
         <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} UK Estates. All rights reserved.</p>
+          <p className="mt-2">
+            Created by{' '}
+            <a
+              href="https://serkanbayraktar.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline transition-colors"
+            >
+              Serkanby
+            </a>
+            {' | '}
+            <a
+              href="https://github.com/Serkanbyx"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline transition-colors"
+            >
+              Github
+            </a>
+          </p>
         </div>
       </div>
     </footer>
