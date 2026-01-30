@@ -14,15 +14,17 @@ import {
   Wind,
   Phone,
   Mail,
-  Share2,
   Heart,
   ChevronLeft,
   ChevronRight,
+  Expand,
 } from 'lucide-react';
 import { useListing } from '@/hooks/useListings';
-import { ContactDialog } from '@/components/listing';
-import { Button, Badge, Card, CardContent, Skeleton } from '@/components/ui';
-import { formatPrice, formatArea, getPropertyTypeLabel, getStatusLabel } from '@/lib/utils';
+import { ContactDialog, ShareButton } from '@/components/listing';
+import { Button, Badge, Card, CardContent, Skeleton, Lightbox } from '@/components/ui';
+import { formatPrice, formatArea, getPropertyTypeLabel, getStatusLabel, cn } from '@/lib/utils';
+import { useFavoritesStore } from '@/store/favoritesStore';
+import { useRecentStore } from '@/store/recentStore';
 
 /**
  * Listing detail page
@@ -34,7 +36,15 @@ export function ListingDetailPage() {
   const { listing: selectedListing } = useListing(id);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Favorites
+  const { isFavorite, toggleFavorite } = useFavoritesStore();
+  const isFav = id ? isFavorite(id) : false;
+
+  // Recent views tracking
+  const { addRecentView } = useRecentStore();
 
   useEffect(() => {
     // Small delay to show loading state
@@ -43,6 +53,13 @@ export function ListingDetailPage() {
     }, 500);
     return () => clearTimeout(timer);
   }, [id]);
+
+  // Track recent view when listing is loaded
+  useEffect(() => {
+    if (id && selectedListing) {
+      addRecentView(id);
+    }
+  }, [id, selectedListing, addRecentView]);
 
   // Reset image index when listing changes
   useEffect(() => {
@@ -112,12 +129,22 @@ export function ListingDetailPage() {
         {/* Main Content */}
         <div className="lg:col-span-2 space-y-6">
           {/* Image Gallery */}
-          <div className="relative rounded-lg overflow-hidden">
+          <div className="relative rounded-lg overflow-hidden group">
             <img
               src={selectedListing.images[currentImageIndex]}
               alt={selectedListing.title}
-              className="w-full aspect-[16/9] object-cover"
+              className="w-full aspect-[16/9] object-cover cursor-pointer"
+              onClick={() => setIsLightboxOpen(true)}
             />
+            
+            {/* Expand Button */}
+            <button
+              onClick={() => setIsLightboxOpen(true)}
+              className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all opacity-0 group-hover:opacity-100"
+              aria-label="View full screen"
+            >
+              <Expand className="h-5 w-5" />
+            </button>
             
             {/* Image Navigation */}
             {selectedListing.images.length > 1 && (
@@ -154,7 +181,7 @@ export function ListingDetailPage() {
             {/* Badges */}
             <div className="absolute top-4 left-4 flex gap-2">
               <Badge>{getStatusLabel(selectedListing.status)}</Badge>
-              <Badge variant="outline" className="bg-white/90">
+              <Badge variant="outline" className="bg-white/90 dark:bg-background/90">
                 {getPropertyTypeLabel(selectedListing.type)}
               </Badge>
             </div>
@@ -319,12 +346,20 @@ export function ListingDetailPage() {
                   <Phone className="h-4 w-4 mr-2" />
                   Contact Agent
                 </Button>
-                <Button variant="outline" size="icon">
-                  <Heart className="h-4 w-4" />
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => id && toggleFavorite(id)}
+                  aria-label={isFav ? 'Remove from favorites' : 'Add to favorites'}
+                >
+                  <Heart
+                    className={cn(
+                      'h-4 w-4 transition-colors',
+                      isFav ? 'fill-red-500 text-red-500' : ''
+                    )}
+                  />
                 </Button>
-                <Button variant="outline" size="icon">
-                  <Share2 className="h-4 w-4" />
-                </Button>
+                <ShareButton title={selectedListing.title} />
               </div>
 
               {/* Agent Info */}
@@ -367,6 +402,15 @@ export function ListingDetailPage() {
         listing={selectedListing}
         open={isContactOpen}
         onOpenChange={setIsContactOpen}
+      />
+
+      {/* Lightbox */}
+      <Lightbox
+        images={selectedListing.images}
+        initialIndex={currentImageIndex}
+        isOpen={isLightboxOpen}
+        onClose={() => setIsLightboxOpen(false)}
+        alt={selectedListing.title}
       />
     </div>
   );

@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from '@/components/layout';
-import { ListingsPage, ListingDetailPage, MapPage } from '@/pages';
+import { ListingsPage, ListingDetailPage, MapPage, FavoritesPage, ComparePage } from '@/pages';
 
 /**
  * Main App component with routing
@@ -18,6 +18,12 @@ function App() {
         
         {/* Map View Page */}
         <Route path="/map" element={<MapPage />} />
+        
+        {/* Favorites Page */}
+        <Route path="/favorites" element={<FavoritesPage />} />
+        
+        {/* Compare Page */}
+        <Route path="/compare" element={<ComparePage />} />
         
         {/* 404 - Redirect to home */}
         <Route path="*" element={<ListingsPage />} />

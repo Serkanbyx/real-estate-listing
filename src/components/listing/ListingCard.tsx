@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Bed, Bath, Maximize, Calendar } from 'lucide-react';
+import { MapPin, Bed, Bath, Maximize, Calendar, Heart, Scale } from 'lucide-react';
 import type { Listing } from '@/types';
-import { Card, CardContent, Badge } from '@/components/ui';
+import { Card, CardContent, Badge, Button } from '@/components/ui';
 import { formatPrice, formatArea, getPropertyTypeLabel, getStatusLabel } from '@/lib/utils';
+import { useFavoritesStore } from '@/store/favoritesStore';
+import { useCompareStore } from '@/store/compareStore';
+import { cn } from '@/lib/utils';
 
 interface ListingCardProps {
   listing: Listing;
@@ -13,6 +16,22 @@ interface ListingCardProps {
  */
 export function ListingCard({ listing }: ListingCardProps) {
   const statusVariant = listing.status === 'for-sale' || listing.status === 'for-rent' ? 'default' : 'secondary';
+  const { isFavorite, toggleFavorite } = useFavoritesStore();
+  const { isInCompare, toggleCompare, canAddMore } = useCompareStore();
+  const isFav = isFavorite(listing.id);
+  const isCompare = isInCompare(listing.id);
+
+  const handleFavoriteClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleFavorite(listing.id);
+  };
+
+  const handleCompareClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleCompare(listing.id);
+  };
 
   return (
     <Link to={`/listing/${listing.id}`}>
@@ -27,9 +46,46 @@ export function ListingCard({ listing }: ListingCardProps) {
           />
           <div className="absolute top-3 left-3 flex gap-2">
             <Badge variant={statusVariant}>{getStatusLabel(listing.status)}</Badge>
-            <Badge variant="outline" className="bg-white/90">
+            <Badge variant="outline" className="bg-white/90 dark:bg-background/90">
               {getPropertyTypeLabel(listing.type)}
             </Badge>
+          </div>
+          {/* Action Buttons */}
+          <div className="absolute top-3 right-3 flex gap-1">
+            {/* Compare Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className={cn(
+                'bg-white/90 dark:bg-background/90 hover:bg-white dark:hover:bg-background h-8 w-8 rounded-full',
+                !isCompare && !canAddMore() && 'opacity-50'
+              )}
+              onClick={handleCompareClick}
+              disabled={!isCompare && !canAddMore()}
+              aria-label={isCompare ? 'Remove from compare' : 'Add to compare'}
+            >
+              <Scale
+                className={cn(
+                  'h-4 w-4 transition-colors',
+                  isCompare ? 'text-primary' : 'text-muted-foreground'
+                )}
+              />
+            </Button>
+            {/* Favorite Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="bg-white/90 dark:bg-background/90 hover:bg-white dark:hover:bg-background h-8 w-8 rounded-full"
+              onClick={handleFavoriteClick}
+              aria-label={isFav ? 'Remove from favorites' : 'Add to favorites'}
+            >
+              <Heart
+                className={cn(
+                  'h-4 w-4 transition-colors',
+                  isFav ? 'fill-red-500 text-red-500' : 'text-muted-foreground'
+                )}
+              />
+            </Button>
           </div>
         </div>
 

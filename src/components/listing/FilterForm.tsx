@@ -55,11 +55,14 @@ export function FilterForm({ onClose }: FilterFormProps) {
   };
 
   const onSubmit = (data: FilterFormData) => {
+    const typeValue = normalizeValue(data.type);
+    const statusValue = normalizeValue(data.status);
+    
     setFilters({
       search: data.search || '',
       city: normalizeValue(data.city),
-      type: normalizeValue(data.type) as FilterFormData['type'],
-      status: normalizeValue(data.status) as FilterFormData['status'],
+      type: (typeValue === '' ? '' : typeValue) as '' | 'apartment' | 'house' | 'villa' | 'land' | 'office' | 'shop',
+      status: (statusValue === '' ? '' : statusValue) as '' | 'for-sale' | 'for-rent' | 'sold' | 'rented',
       priceMin: data.priceMin ?? null,
       priceMax: data.priceMax ?? null,
       roomsMin: data.roomsMin ?? null,
