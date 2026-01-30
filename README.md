@@ -1,6 +1,6 @@
 # 🏠 UK Estates - Property Listing App
 
-A modern and responsive UK property listing application built with React, TypeScript, and Tailwind CSS. Browse thousands of properties across the United Kingdom with advanced filtering, interactive maps, and a beautiful user interface.
+A modern and responsive UK property listing application built with React, TypeScript, and Tailwind CSS. Browse thousands of properties across the United Kingdom with advanced filtering, interactive maps, favorites, property comparison, and a beautiful user interface.
 
 [![Created by Serkanby](https://img.shields.io/badge/Created%20by-Serkanby-blue?style=flat-square)](https://serkanbayraktar.com/)
 [![GitHub](https://img.shields.io/badge/GitHub-Serkanbyx-181717?style=flat-square&logo=github)](https://github.com/Serkanbyx)
@@ -16,13 +16,36 @@ A modern and responsive UK property listing application built with React, TypeSc
 - **Responsive Design**: Mobile-first approach ensuring perfect display on all devices
 - **Property Detail Page**: View property details, photo gallery, features, and agent information
 - **Interactive Map View**: Leaflet-powered map with city markers and property locations
+- **Favorites System**: Save your favorite properties with localStorage persistence
+- **Property Comparison**: Compare multiple properties side-by-side with detailed feature comparison
+- **Dark Mode**: Full dark/light theme support with system preference detection
+- **Social Sharing**: Share properties via Web Share API, Twitter, Facebook, WhatsApp, or copy link
+- **Image Lightbox**: Full-screen image gallery with zoom, pan, keyboard navigation, and touch swipe support
 - **Contact Form**: Secure contact form with Zod validation for reaching property agents
 - **State Management**: Efficient state handling with Zustand for seamless user experience
 - **Modern UI Components**: Beautiful, accessible components built with shadcn/ui and Radix UI
+- **Recently Viewed**: Track and access recently viewed properties
 
 ## Live Demo
 
-[🌐 View Live Demo](https://your-demo-url.netlify.app)
+[🌐 View Live Demo](https://real-estate-listingg.netlify.app/)
+
+## Screenshots
+
+### Home Page
+Browse all available properties in a responsive grid layout with advanced filtering options.
+
+### Property Details
+View comprehensive property information including photo gallery, features, location, and agent contact.
+
+### Map View
+Explore properties on an interactive map with city markers and property clustering.
+
+### Compare Properties
+Side-by-side comparison of selected properties with all key features.
+
+### Favorites
+Access your saved properties in one convenient location.
 
 ## Technologies
 
@@ -87,8 +110,12 @@ http://localhost:5173
 1. **Browse Properties**: Visit the home page to see all available property listings in a grid layout
 2. **Filter Listings**: Use the filter panel (sidebar on desktop, drawer on mobile) to narrow down results by city, price range, rooms, and property type
 3. **View Details**: Click on any property card to see detailed information, photos, and features
-4. **Explore Map**: Navigate to the Map View to see properties on an interactive map with city markers
-5. **Contact Agent**: Use the contact form on the property detail page to reach out to the listing agent
+4. **Save Favorites**: Click the heart icon on any property to save it to your favorites
+5. **Compare Properties**: Add properties to compare by clicking the compare button, then view side-by-side comparison
+6. **Explore Map**: Navigate to the Map View to see properties on an interactive map with city markers
+7. **Share Properties**: Use the share button to share properties via social media or copy link
+8. **Contact Agent**: Use the contact form on the property detail page to reach out to the listing agent
+9. **Toggle Theme**: Switch between light and dark mode using the theme toggle in the header
 
 ## How It Works
 
@@ -98,23 +125,29 @@ http://localhost:5173
 src/
 ├── components/
 │   ├── layout/          # Header, Footer, Layout components
-│   ├── listing/         # ListingCard, FilterForm, ContactDialog
-│   └── ui/              # Reusable UI components (Button, Input, Dialog, etc.)
+│   ├── listing/         # ListingCard, FilterForm, ContactDialog, ShareButton, CompareBar
+│   └── ui/              # Reusable UI components (Button, Input, Dialog, Lightbox, etc.)
 ├── data/
 │   └── mockListings.ts  # Sample listing data for development
 ├── hooks/
-│   └── useListings.ts   # Custom hooks for API calls and data fetching
+│   ├── useListings.ts   # Custom hooks for API calls and data fetching
+│   └── useTheme.ts      # Theme management hook for dark/light mode
 ├── lib/
 │   ├── utils.ts         # Utility functions (cn, formatPrice, etc.)
 │   └── validations.ts   # Zod validation schemas
 ├── pages/
 │   ├── ListingsPage.tsx     # Main listing page with filters
 │   ├── ListingDetailPage.tsx # Property detail page
-│   └── MapPage.tsx          # Interactive map view
+│   ├── MapPage.tsx          # Interactive map view
+│   ├── FavoritesPage.tsx    # Saved favorites page
+│   └── ComparePage.tsx      # Property comparison page
 ├── services/
 │   └── api.ts           # API service layer for data fetching
 ├── store/
-│   └── listingStore.ts  # Zustand store for global state
+│   ├── listingStore.ts  # Zustand store for listings
+│   ├── favoritesStore.ts # Favorites state management
+│   ├── compareStore.ts  # Compare feature state
+│   └── recentStore.ts   # Recently viewed tracking
 ├── types/
 │   └── index.ts         # TypeScript type definitions
 ├── App.tsx              # Router configuration
@@ -127,13 +160,29 @@ src/
 The application uses Zustand for state management, providing a simple and efficient way to handle global state:
 
 ```typescript
-// Example: Zustand store structure
-const useListingStore = create((set) => ({
-  listings: [],
-  filters: {},
-  setListings: (listings) => set({ listings }),
-  setFilters: (filters) => set({ filters }),
+// Example: Favorites store structure
+const useFavoritesStore = create((set) => ({
+  favoriteIds: [],
+  addFavorite: (id) => set((state) => ({ 
+    favoriteIds: [...state.favoriteIds, id] 
+  })),
+  removeFavorite: (id) => set((state) => ({ 
+    favoriteIds: state.favoriteIds.filter((fId) => fId !== id) 
+  })),
+  clearFavorites: () => set({ favoriteIds: [] }),
 }));
+```
+
+### Theme System
+
+The theme system supports light, dark, and system preferences:
+
+```typescript
+// useTheme hook provides theme management
+const { theme, resolvedTheme, setTheme, toggleTheme, isDark } = useTheme();
+
+// Theme is persisted to localStorage
+// System preference changes are automatically detected
 ```
 
 ### Form Validation
@@ -164,6 +213,12 @@ Edit CSS variables in `src/index.css` to customize the color theme:
   --background: 0 0% 100%;
   --foreground: 222.2 84% 4.9%;
   /* ... other variables */
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  /* ... dark mode variables */
 }
 ```
 
@@ -212,15 +267,24 @@ const API_CONFIG = {
 ✅ Loading skeletons for better UX  
 ✅ Zustand state management  
 ✅ TypeScript type safety  
+✅ Favorites system with localStorage persistence  
+✅ Property comparison feature  
+✅ Dark/Light theme support  
+✅ Social sharing (Web Share API, Twitter, Facebook, WhatsApp)  
+✅ Full-screen image lightbox with zoom and pan  
+✅ Recently viewed properties tracking  
+✅ Keyboard navigation support  
+✅ Touch swipe gestures for mobile  
 
 ### Future Features
 
-- [ ] User authentication and favorites
-- [ ] Property comparison feature
+- [ ] User authentication
 - [ ] Advanced search with more filters
-- [ ] Property image carousel
+- [ ] Property price history
 - [ ] Agent dashboard
 - [ ] Email notifications
+- [ ] Virtual property tours
+- [ ] Mortgage calculator
 
 ## Deployment
 
